@@ -16,8 +16,11 @@ Create a network to configure the communication between the Node and the Mongo c
 
 * Build a container based on the mongo image: `docker run -d --rm --name mongo_container -v data:/data/db --network my-net mongo`.
 
-Note: If we want to add a username and a passsword to our db, we ned to run:  
-```docker run -d --rm --name mongo_container -v data:/data/db --network my-net -e MONGO_INITDB_ROOT_USERNAME=jorge -e MONGO_INITDB_ROOT_PASSWORD=jorge123 mongo```.    
+Note: If we want to add a username and a passsword to our db, we ned to run: 
+
+```
+docker run -d --rm --name mongo_container -v data:/data/db --network my-net -e MONGO_INITDB_ROOT_USERNAME=jorge -e MONGO_INITDB_ROOT_PASSWORD=jorge123 mongo
+```    
 And also, we need to change our backend with Node.
 
 ### 03. Node container.
