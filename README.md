@@ -14,14 +14,17 @@ Create a network to configure the communication between the Node and the Mongo c
 
 ### 02. Mongo container.
 
-* Build a container based on the mongo image: `docker run -d --name mongo_container --network my-net mongo`.
+* Build a container based on the mongo image: `docker run -d --rm --name mongo_container -v data:/data/db --network my-net mongo`.
+
+Note: If we want to add a username and a passsword to our db, we ned to run: `docker run -d --rm --name mongo_container -v data:/data/db --network my-net -e MONGO_INITDB_ROOT_USERNAME=jorge -e MONGO_INITDB_ROOT_PASSWORD=jorge123 mongo`.  
+And also, we need to change our backend with Node.
 
 ### 03. Node container.
 
 * In the app.js file, we need to change the URL name by adding the mongo container name: `mongodb://mongo_container:27017/course-goals`.
 * Create the Dockerfile.
 * Build the image: `docker build -t node-image:v1 .`.
-* Runthe container and expose it: `docker run -p 80:80 -d --rm --name node_container --network my-net node-image:v1`.
+* Run the container and expose it: `docker run -p 80:80 -d --rm --name node_container --network my-net node-image:v1`.
 
 ### 04. React App.
 
