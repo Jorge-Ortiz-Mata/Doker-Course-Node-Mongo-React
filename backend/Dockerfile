@@ -8,6 +8,10 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["node", "app.js"]
+VOLUME ["logs:/app/logs"]
+ 
+VOLUME ["/app/node_modules"]
+
+CMD ["npm", "start"]
