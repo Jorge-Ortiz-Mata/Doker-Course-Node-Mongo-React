@@ -96,7 +96,7 @@ mongoose.connect(
     } else {
       console.log('CONNECTED TO MONGODB');
       console.log("I'm Jorge.");
-      app.listen(8000);
+      app.listen(80);
     }
   }
 );
