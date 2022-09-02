@@ -6,11 +6,13 @@ COPY package.json .
 
 RUN npm install
 
-RUN npm install -g nodemon
-
 COPY . .
 
 EXPOSE 8000
+
+ENV MONGO_DB_USERNAME=jorge
+
+ENV MONGO_DB_PASSWORD=jorge123
 
 # -----------------
 # We need to add these volumes in the dockerfile. We ere having problems with node:16
@@ -28,4 +30,4 @@ VOLUME ["logs:/app/logs"]
 VOLUME ["/app/node_modules"]
 # --------------- 
 
-CMD ["nodemon", "./app.js"]
+CMD ["npm", "start"]
