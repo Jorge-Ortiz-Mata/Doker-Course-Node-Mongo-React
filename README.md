@@ -34,7 +34,7 @@ And also, we need to change our backend with Node.
 
 * Create the dockerfile.
 * Build the image: `docker build -t react:v1 .`.
-* Run the docker container: `docker run -p 3000:3000 -d -it --rm --name react_container react-image:v2`.
+* Run the docker container: `docker run -p 3000:3000 --rm -v "/home/jorge/docker-course/mongo-node-react/multi-01-starting-setup/frontend/:/app/" --name react_container -it react-image:latest`.
 
 Note: We don't need to add the network because React is connecting through the browser.
 
