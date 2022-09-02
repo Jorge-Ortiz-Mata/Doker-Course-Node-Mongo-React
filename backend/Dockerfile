@@ -6,6 +6,8 @@ COPY package.json .
 
 RUN npm install
 
+RUN npm install -g nodemon
+
 COPY . .
 
 EXPOSE 8000
@@ -15,7 +17,7 @@ EXPOSE 8000
 
 # Any change we made in our local, it will update our Dockerfile.
 # You will need to add this in the command line, it doesn't work here.
-VOLUME [ "/home/jorge/docker-course/mongo-node-react/multi-01-starting-setup/backend:/app" ]
+# VOLUME [ "/home/jorge/docker-course/mongo-node-react/multi-01-starting-setup/backend:/app" ]
 
 # This will name a volume just with read permissions.
 VOLUME ["logs:/app/logs"] 
@@ -26,4 +28,4 @@ VOLUME ["logs:/app/logs"]
 VOLUME ["/app/node_modules"]
 # --------------- 
 
-CMD ["npm", "start"]
+CMD ["nodemon", "./app.js"]
