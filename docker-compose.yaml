@@ -40,8 +40,8 @@ services:       # Services are the Docker containers and their names.
       - "3000:3000"
     volumes:
       - ./frontend/:/app
-    stdin_open: true
-    tty: true
+    stdin_open: true      # This line and the next one, is adding the -it flag for react containers (next one as well). 
+    tty: true   
     depends_on:
       - node_container
   # ------------------------------------
