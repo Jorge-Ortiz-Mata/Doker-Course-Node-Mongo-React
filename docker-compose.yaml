@@ -1,0 +1,26 @@
+# Somethings to keep in mind.
+# -d flag necesary. All the containers start in ditacched mode.
+# --network flag is not necessary. Docker compose creates an enviroment where all these containers will be hosted (We can specify it if we want).
+
+# ----------- Docker compose ----------
+version: "3.8"  # Docker compose version.
+services:       # Services are the Docker containers and their names.
+
+  # -------- Mongo Container -----------
+  mongo_container:      # The custom Mongo container created.
+    image: "mongo:latest"       # Image name.
+    volumes:                    # Container volume.
+      - data:/data/db
+    env_file:                   # Enviroment variables (are saved within .env files).
+      - ./env/mongo.env
+  # ------------------------------------
+  # -------- Node Container -----------
+  #node_container:       # The custom Node container created.
+  # ------------------------------------
+  # -------- React Container -----------
+  #react_container:      # The custom Mongo container created.
+  # ------------------------------------
+
+# Requierements for Docker. --------
+volumes:        # We need to specify the volume's names in this section (same level as services).
+  data:
