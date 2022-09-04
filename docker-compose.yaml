@@ -7,7 +7,8 @@ version: "3.8"  # Docker compose version.
 services:       # Services are the Docker containers and their names.
 
   # -------- Mongo Container -----------
-  mongo_container:      # The custom Mongo container created.
+  mongo_container:      # The custom Mongo container created (Service name).
+    container_name: mongo_container
     image: "mongo:latest"       # Image name.
     volumes:                    # Container volume.
       - data:/data/db
@@ -16,6 +17,7 @@ services:       # Services are the Docker containers and their names.
   # ------------------------------------
   # -------- Node Container -----------
   node_container:       # The custom Node container created.
+    container_name: node_container
     build: ./backend    # The shortest way.
     # build:
       # context: ./backend      # Here we specified the root folder.
@@ -32,6 +34,7 @@ services:       # Services are the Docker containers and their names.
   # ------------------------------------
   # -------- React Container -----------
   react_container:      # The custom Mongo container created.
+    container_name: react_container
     build: ./frontend
     ports:
       - "3000:3000"
