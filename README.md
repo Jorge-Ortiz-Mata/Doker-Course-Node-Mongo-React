@@ -28,7 +28,7 @@ And also, we need to change our backend with Node.
 * In the app.js file, we need to change the URL name by adding the mongo container name: `mongodb://jorge:jorge123@mongo_container:27017/course-goals?authSource=admin`.
 * Create the Dockerfile.
 * Build the image: `docker build -t node-image:v1 .`.
-* Run the container and expose it: `docker run -p 80:80 -d --rm --name node_container --network my-net node-image:v1`.
+* Run the container and expose it: `docker run -p 80:80 -d --rm --name node_container -v "path:/app" --network my-net node-image:v1`.
 
 ### 04. React App.
 
@@ -37,6 +37,7 @@ And also, we need to change our backend with Node.
 * Run the docker container: `docker run -p 3000:3000 --rm -v "/home/jorge/docker-course/mongo-node-react/multi-01-starting-setup/frontend/:/app/" --name react_container -it react-image:latest`.
 
 Note: We don't need to add the network because React is connecting through the browser.
+Note: Don't forget to check out the Dockerfile in the Fronted's folder.
 
 ## Comments.
 
