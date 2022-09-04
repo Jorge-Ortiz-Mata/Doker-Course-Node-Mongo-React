@@ -95,7 +95,7 @@ mongoose.connect(
       console.error(err);
     } else {
       console.log('CONNECTED TO MONGODB');
-      console.log("Jorge Ortiz")
+      console.log("Jorge Ortiz.")
       app.listen(80);
     }
   }

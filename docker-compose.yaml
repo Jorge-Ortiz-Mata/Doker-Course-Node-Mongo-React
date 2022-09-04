@@ -15,12 +15,34 @@ services:       # Services are the Docker containers and their names.
       - ./env/mongo.env
   # ------------------------------------
   # -------- Node Container -----------
-  #node_container:       # The custom Node container created.
+  node_container:       # The custom Node container created.
+    build: ./backend    # The shortest way.
+    # build:
+      # context: ./backend      # Here we specified the root folder.
+      # dockerfile: Dockerfile      # Here we specified the Dockerfile's name.
+      # args: 
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend/:/app
+    env_file:                   # Enviroment variables (are saved within .env files).
+      - ./env/node.env
+    depends_on:                 # It depends from other services (container's name) (optional).
+      - mongo_container
   # ------------------------------------
   # -------- React Container -----------
-  #react_container:      # The custom Mongo container created.
+  react_container:      # The custom Mongo container created.
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/:/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - node_container
   # ------------------------------------
 
 # Requierements for Docker. --------
 volumes:        # We need to specify the volume's names in this section (same level as services).
-  data:
+  data:         # Same name as we have it in our service (mongo_container service).

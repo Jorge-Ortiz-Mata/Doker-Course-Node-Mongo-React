@@ -10,10 +10,6 @@ COPY . .
 
 EXPOSE 80
 
-ENV MONGO_DB_USERNAME=jorge
-
-ENV MONGO_DB_PASSWORD=jorge123
-
 # -----------------
 # We need to add these volumes in the dockerfile. We ere having problems with node:16
 
