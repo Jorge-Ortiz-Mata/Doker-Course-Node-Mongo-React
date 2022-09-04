@@ -8,8 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
-
 # -----------------
 # We need to add these volumes in the dockerfile. We ere having problems with node:16
 
